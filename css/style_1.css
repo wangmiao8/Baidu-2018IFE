@@ -1,0 +1,10 @@
+body{
+    font-family: 'Microsoft Yahei', sans-serif;
+}
+span,a{
+   margin-right: 20px;
+}
+.profile b,.contact b{
+    margin-right: 10px;
+}
+

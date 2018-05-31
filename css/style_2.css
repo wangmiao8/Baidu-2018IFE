@@ -1,0 +1,19 @@
+body{
+    font-family: 'Microsoft Yahei', sans-serif;
+    
+}
+.header{
+    float: left;
+    width: 200px;
+    height: 135%;
+    background-color: #51A8DD;
+    color: aliceblue;
+}
+.header h1{
+    text-align: center;
+    margin-top: 50px;
+}
+.content{
+    float: left;
+    margin: 10px 30px;
+}
