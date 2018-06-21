@@ -1,0 +1,320 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+h1,h2{
+    text-align: center;
+    margin-bottom: 20px;
+}
+div{
+    margin-bottom: 20px;
+}
+
+/*-----float实现------*/
+
+.float{
+    margin-top: 100px;
+    overflow: hidden;
+}
+
+/* ---------------------------------------- */
+
+.float1{
+    overflow: auto;
+}
+.float1-R{
+    float: right;
+    background-color: aquamarine;
+    width: 70%;
+    height: 200px;
+}
+.float1-L{
+    float: left;
+    background-color: burlywood;
+    width: 30%;
+    height: 200px;
+}
+
+/* ---------------------------------------- */
+
+.float2{
+    overflow: auto;
+}
+.float2-L{
+    float: left;
+    background-color: burlywood;
+    width: 400px;
+    height: 200px;
+}
+.float2-R{
+    float: left;
+    background-color: aquamarine;
+    width: calc(100% - 400px);
+    height: 200px;
+}
+
+/* ---------------------------------------- */
+
+.float3{
+    overflow: auto;
+}
+.float3-L{
+    float: left;
+    background-color: burlywood;
+    width: calc(100% - 400px);
+    height: 200px;
+}
+.float3-R{
+    float: right;
+    background-color: aquamarine;
+    width: 400px;
+    height: 200px;
+}
+
+/* ---------------------------------------- */
+
+.float4{
+    overflow: auto;
+}
+.float4-L{
+    float: left;
+    background-color: burlywood;
+    width: 300px;
+    height: 200px;
+}
+.float4-R{
+    float: right;
+    background-color: aquamarine;
+    width: 300px;
+    height: 200px;
+}
+.float4-M{
+    float: left;
+    background-color: blueviolet;
+    width: calc(100% - 600px);
+    height: 200px;
+}
+
+/* ---------------------------------------- */
+
+.float5{
+    overflow: auto;
+}
+.float5-L{
+    float: left;
+    background-color: burlywood;
+    width: 300px;
+    height: 200px;
+}
+.float5-R{
+    float: right;
+    background-color: aquamarine;
+    width: calc(100% - 600px);
+    height: 200px;
+}
+.float5-M{
+    float: left;
+    background-color: blueviolet;
+    width: 300px;
+    height: 200px;
+}
+
+
+/*-----Position实现------*/
+
+.position1{
+    position: relative;
+}
+.position1-L{
+    width: 30%;
+    height: 200px;
+    background-color: burlywood;
+}
+.position1-R{
+    position: absolute;
+    top: 51px;
+    left: 30%;
+    width: 70%;
+    height: 200px;
+    background-color: aquamarine;
+}
+
+/* ---------------------------------------- */
+
+.position2{
+    position: relative;
+}
+.position2-L{
+    width: 400px;
+    height: 200px;
+    background-color: burlywood;
+}
+.position2-R{
+    position: absolute;
+    top: 51px;
+    left: 400px;
+    width: calc(100% - 400px);
+    height: 200px;
+    background-color: aquamarine;
+}
+
+/* ---------------------------------------- */
+
+.position3{
+    position: relative;
+}
+.position3-L{
+    width: calc(100% - 400px);
+    height: 200px;
+    background-color: burlywood;
+}
+.position3-R{
+    position: absolute;
+    top: 51px;
+    right: 0px;
+    width: 400px;
+    height: 200px;
+    background-color: aquamarine;
+}
+
+/* ---------------------------------------- */
+.position4{
+    position: relative;
+}
+.position4-L{
+    width: 300px;
+    height: 200px;
+    background-color: burlywood;
+}
+.position4-R{
+    position: absolute;
+    top: 51px;
+    right: 0px;
+    width: 300px;
+    height: 200px;
+    background-color: aquamarine;
+}
+.position4-M{
+    position: absolute;
+    top: 51px;
+    left: 300px;
+    width: calc(100% - 600px);
+    height: 200px;
+    background-color: blueviolet;
+}
+/* ---------------------------------------- */
+
+.position5{
+    position: relative;
+}
+.position5-L{
+    width: 300px;
+    height: 200px;
+    background-color: burlywood;
+}
+.position5-R{
+    position: absolute;
+    top: 51px;
+    right: 0px;
+    width: calc(100% - 600px);
+    height: 200px;
+    background-color: aquamarine;
+}
+.position5-M{
+    position: absolute;
+    top: 51px;
+    left: 300px;
+    width: 300px;
+    height: 200px;
+    background-color: blueviolet;
+}
+
+/*-----Flexbox实现------*/
+
+.flexbox1{
+    display: flex;
+}
+.flexbox1-L{
+    width: 30%;
+    height: 200px;
+    background-color: burlywood;
+}
+.flexbox1-R{
+    width: 70%;
+    height: 200px;
+    background-color: aquamarine;
+}
+
+/* ---------------------------------------- */
+
+.flexbox2{
+    display: flex;
+}
+.flexbox2-L{
+    width: 400px;
+    height: 200px;
+    background-color: burlywood;
+}
+.flexbox2-R{
+    width: calc(100% - 400px);
+    height: 200px;
+    background-color: aquamarine;
+}
+
+/* ---------------------------------------- */
+
+.flexbox3{
+    display: flex;
+}
+.flexbox3-L{
+    width: calc(100% - 400px);
+    height: 200px;
+    background-color: burlywood;
+}
+.flexbox3-R{
+    width: 400px;
+    height: 200px;
+    background-color: aquamarine;
+}
+
+/* ---------------------------------------- */
+
+.flexbox4{
+    display: flex;
+}
+.flexbox4-L{
+    width: 300px;
+    height: 200px;
+    background-color: burlywood;
+}
+.flexbox4-R{
+    width: 300px;
+    height: 200px;
+    background-color: aquamarine;
+}
+.flexbox4-M{
+    width: calc(100% - 600px);
+    height: 200px;
+    background-color: blueviolet; 
+}
+
+/* ---------------------------------------- */
+
+.flexbox5{
+    display: flex;
+}
+.flexbox5-L{
+    width: 300px;
+    height: 200px;
+    background-color: burlywood;
+}
+.flexbox5-R{
+    width: calc(100% - 600px);
+    height: 200px;
+    background-color: aquamarine;
+}
+.flexbox5-M{
+    width: 300px;
+    height: 200px;
+    background-color: blueviolet; 
+}
