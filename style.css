@@ -1,0 +1,110 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+h1,h2{
+    text-align: center;
+    margin-bottom: 20px;
+}
+div{
+    margin-bottom: 20px;
+}
+
+/*-----float实现------*/
+
+.float{
+    margin-top: 100px;
+    overflow: hidden;
+}
+
+/* ---------------------------------------- */
+
+.float1-R{
+    float: right;
+    background-color: aquamarine;
+    width: 70%;
+    height: 200px;
+}
+.float1-L{
+    float: left;
+    background-color: burlywood;
+    width: 30%;
+    height: 200px;
+}
+
+/* ---------------------------------------- */
+
+.float2-L{
+    float: left;
+    background-color: burlywood;
+    width: 400px;
+    height: 200px;
+}
+.float2-R{
+    float: left;
+    background-color: aquamarine;
+    width: calc(100% - 400px);
+    height: 200px;
+}
+
+/* ---------------------------------------- */
+
+.float3-L{
+    float: left;
+    background-color: burlywood;
+    width: calc(100% - 400px);
+    height: 200px;
+}
+.float3-R{
+    float: right;
+    background-color: aquamarine;
+    width: 400px;
+    height: 200px;
+}
+
+/* ---------------------------------------- */
+
+.float4-L{
+    float: left;
+    background-color: burlywood;
+    width: 300px;
+    height: 200px;
+}
+.float4-R{
+    float: right;
+    background-color: aquamarine;
+    width: 300px;
+    height: 200px;
+}
+.float4-M{
+    float: left;
+    background-color: blueviolet;
+    width: calc(100% - 600px);
+    height: 200px;
+}
+
+/* ---------------------------------------- */
+
+
+.float5-L{
+    float: left;
+    background-color: burlywood;
+    width: 300px;
+    height: 200px;
+}
+.float5-R{
+    float: right;
+    background-color: aquamarine;
+    width: calc(100% - 600px);
+    height: 200px;
+}
+.float5-M{
+    float: left;
+    background-color: blueviolet;
+    width: 300px;
+    height: 200px;
+}
+
+
+/*-----Position实现------*/
+
