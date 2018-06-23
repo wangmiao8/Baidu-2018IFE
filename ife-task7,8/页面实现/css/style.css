@@ -1,0 +1,120 @@
+*{
+    margin: 0;
+    padding: o;
+}
+#header{
+    width: 100%;
+    height: 100px;
+    background-color: #333333;
+}
+.center{
+    width: 960px;
+    height: 100px;
+    margin: 0 auto;
+}
+.logo{
+    float: left;
+    margin-top: 20px;
+}
+.logo span{
+    font-size: 30px;
+    color:  white;
+}
+.top-nav{
+    float: right;
+
+}
+.top-nav li{
+    float: left;
+    margin-right: 10px;
+    list-style: none;
+}
+#header a{
+    color: white;
+}
+#banner{
+    position: relative;
+}
+.banner-img{
+    background-color: #66BB33;
+    width: 100%;
+    height: 400px;
+}
+.banner-num{
+    position: absolute;
+    top: 360px;
+    right: 150px;
+    display: flex;
+}
+.banner-num span{
+    display: block;
+    width: 30px;
+    height: 30px;
+    background-color:rgba(255, 255, 255, 0.5);
+    margin-right: 10px;
+    padding: 7px 5px 7px 9px;
+    box-sizing: border-box;
+    border: #000000 1px solid;
+}
+.banner-num span:hover{
+    display: block;
+    height: 40px;
+    width: 30px;
+    background-color:rgba(255, 255, 255, 0.5);
+    margin-right: 10px;
+    padding: 7px 5px 7px 9px;
+    box-sizing: border-box;
+    border: #000000 1px solid;
+}
+#banner a:link{
+    text-decoration:#000000;
+}
+#banner a:visited{
+    text-decoration:#000000;
+}
+#content{
+    width: 960px;
+    margin: 0 auto;
+}
+.content-nav{
+    display: flex;
+    width: 100%;
+}
+.home,.profile,.about{
+    width: 110px;
+    height: 50px;
+    background-color: #EEEEEE;
+    border-radius: 25px 25px 0 0;
+    margin-top: 40px;
+    border: #000000 solid 1px;
+}
+.content-nav span{
+    display: block;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+}
+.content-main{
+    display: flex;
+    flex-wrap: wrap;
+}
+.layout{
+    flex: 1 100px;
+    height: 200px;
+    border: solid #EEEEEE 1px;
+    padding: 80px;
+    box-sizing: border-box;
+    margin: 5px;
+}
+#footer{
+    background-color: #666666;
+    height: 200px;
+    width: 100%;
+    text-align: center;
+}
+#footer span{
+    display: block;
+    line-height: 50px;
+    color: aliceblue;
+}
