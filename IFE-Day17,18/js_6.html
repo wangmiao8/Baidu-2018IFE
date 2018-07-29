@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function nowTime(){
+            var mytime = new Date();
+            var myHour = mytime.getHours();
+            switch(true)
+            {
+                case 0<myHour&&myHour<=5:
+                    alert("凌晨好！");
+                    break;
+                case 5<myHour&&myHour<=11:
+                    alert("早上好！");
+                    break;
+                case 11<myHour&&myHour<=13:
+                    alert("中午好！");
+                    break;
+                case 13<myHour&&myHour<=17:
+                    alert("下午好！");
+                    break;
+                case 17<myHour&&myHour<=19:
+                    alert("傍晚好！");
+                    break;
+                case 19<myHour&&myHour<=24:
+                    alert("晚上好！");
+                    break;
+            }
+        }
+        nowTime();
+    </script>
+</body>
+</html>

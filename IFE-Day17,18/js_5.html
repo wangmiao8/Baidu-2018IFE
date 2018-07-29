@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>九九乘法表</title>
+</head>
+<body>
+    <table id="times-table"></table>
+    <script>
+        function times(){
+            var table = document.getElementById("times-table");
+            var result;
+            for(var n=1;n<=9;n++)
+            {
+                var tr = document.createElement("tr");
+                table.appendChild(tr);
+                for(var m=1;m<=9;m++)
+                {
+                    if(n<=m)
+                    {
+                        result = n * m;
+                        var td = document.createElement("td");
+                        td.innerHTML=n+"*"+m+"= "+result;
+                        tr.appendChild(td);
+                        console.log(n+"*"+m+"= "+result);
+                    }
+                }
+            }
+        }
+        times();
+    </script>
+</body>
+</html>

@@ -42,7 +42,7 @@
 }
 .banner-num{
     position: absolute;
-    top: 360px;
+    bottom: 20px;
     right: 150px;
     display: flex;
 }
@@ -57,14 +57,11 @@
     border: #000000 1px solid;
 }
 .banner-num span:hover{
-    display: block;
     height: 40px;
-    width: 30px;
-    background-color:rgba(255, 255, 255, 0.5);
-    margin-right: 10px;
-    padding: 7px 5px 7px 9px;
-    box-sizing: border-box;
-    border: #000000 1px solid;
+}
+.banner-num span a{
+    position:absolute;
+    bottom:0;
 }
 #banner a:link{
     text-decoration:#000000;
@@ -79,6 +76,7 @@
 .content-nav{
     display: flex;
     width: 100%;
+    border-bottom: #666666 solid 1px;
 }
 .home,.profile,.about{
     width: 110px;
@@ -86,7 +84,11 @@
     background-color: #EEEEEE;
     border-radius: 25px 25px 0 0;
     margin-top: 40px;
-    border: #000000 solid 1px;
+    border: #666666 solid 1px;
+    border-bottom: 0;
+}
+.home,.profile:hover,.about:hover{
+    background-color: white;
 }
 .content-nav span{
     display: block;
