@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input id="name" type="text">    
+    <button id="submit-btn">Submit</button>
+    <script>
+        var commit = document.getElementById("submit-btn");
+        var nameInput = document.getElementById("name");
+        commit.onclick = function(){
+            console.log(nameInput.value);
+        };
+        nameInput.onkeydown = function(e){
+            var oEvent = e||event;
+            //console.log(oEvent.keyCode);
+            if(oEvent.keyCode == 13)
+            {
+                console.log(nameInput.value);
+            }
+            if(oEvent.keyCode == 27)
+            {
+                nameInput.value = "";
+            }
+        };
+        
+    </script>
+</body>
+</html>
