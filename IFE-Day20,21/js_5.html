@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="fade-obj" style="width:300px;height:300px;background:#000;opacity:1"></div>
+    <button id="fade-btn">淡出</button>
+    <script>
+        var btn = document.getElementById("fade-btn");
+        var o = document.getElementById("fade-obj");
+        var timeId;
+        o.style.opacity = 1;
+        function fade(){
+            if(btn.innerHTML=="淡出")
+            {
+                if(o.style.opacity<=0)
+                {
+                    console.log("hello");
+                    btn.disabled=false;
+                    btn.innerHTML="淡入"; 
+                    clearInterval(timeId);
+                }
+                else if(o.style.opacity<1&&o.style.opacity>0)
+                {
+                    btn.disabled=true;
+                }
+                o.style.opacity = o.style.opacity-0.1;
+                console.log(o.style.opacity);
+
+            }
+            else
+            {
+                if(o.style.opacity>=1)
+                {
+                    console.log("hello2");
+                    btn.disabled=false;
+                    btn.innerHTML="淡出";
+                    clearInterval(timeId);
+                }
+                else if(o.style.opacity<1&&o.style.opacity>0)
+                {
+                    btn.disabled=true;
+                }
+                o.style.opacity = Number(o.style.opacity)+0.1;
+                console.log(o.style.opacity);
+            }
+        }
+        btn.onclick = function(){
+            timeId = setInterval("fade()",50);
+        }
+    </script>
+</body>
+</html>
