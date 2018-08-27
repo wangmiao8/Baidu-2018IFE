@@ -23,14 +23,13 @@
     </div>
     <p id="result"></p>
 
-    <script>
-        var numA = document.getElementById("num-a").value;
-        var numB = document.getElementById("num-b").value;
-        var rusult = document.getElementById("result");
-        var choice = document.getElementsByName("math-obj");    
-        var buttonNum = document.getElementById("buttonNum");
-        
+    <script> 
         buttonNum.onclick = function(ev){
+            var numA = document.getElementById("num-a").value;
+            var numB = document.getElementById("num-b").value;
+            var rusult = document.getElementById("result");
+            var choice = document.getElementsByName("math-obj");    
+            var buttonNum = document.getElementById("buttonNum");
             var ev = ev||window.event;
             var target = ev.target||ev.srcElement;
             if(target.nodeName.toLowerCase() == "button")
@@ -40,39 +39,82 @@
                     case "判断当前选中的输入框输入内容是否为数字":
                         if(choice[0].checked)
                         {
-                            if(numA&&Number(numA)===numA)
+                            if(numA && typeof(numA) == "string" && !(isNaN(Number(numA))))
                             {
-                                result.innerHTML="输入的内容为数字"
+                                result.innerHTML = "输入的内容为数字";
                             }
                             else
                             {
                                 result.innerHTML="输入的内容不是数字"
+                                console.log('test1');
                             }
                         }
                         else
                         {
-                            if(numB&&Number(numB)===numB)
+                            if(numA && typeof(numB) == "string" && !(isNaN(Number(numB))))
                             {
                                 result.innerHTML="输入的内容为数字"
+                                console.log('test2');
                             }
                             else
                             {
                                 result.innerHTML="输入的内容不是数字"
+                                console.log('test3');
                             }
                         }
                         break;
                     case "把 A 四舍五入为 B 个小数位数的数字":
+                        numA = Number(numA);
+                        //console.log(typeof(numA));
                         result.innerHTML="四舍五入："+numA.toFixed(numB);
                         break;
                     case"当前选中数字的绝对值":
+                        // numA = Number(numA);
+                        // console.log(typeof(numA))
                         if(choice[0].checked)
                         {
-                            Math.ceil(numA);
+                            result.innerHTML="绝对值："+ Math.abs(numA);
                         }
                         else
                         {
-                            Math.ceil(numB);
+                            result.innerHTML="绝对值："+ Math.abs(numB);
                         }
+                        break;
+                    case"对当前选中的数字进行上舍入":
+                        if(choice[0].checked)
+                        {
+                            result.innerHTML="上舍入"+Math.ceil(numA);
+                        }
+                        else
+                        {
+                            result.innerHTML="上舍入"+ Math.ceil(numB);
+                        }
+                        break;
+                    case"对当前选中的数字进行下舍入":
+                        if(choice[0].checked)
+                        {
+                            result.innerHTML="下舍入"+Math.floor(numA);
+                        }
+                        else
+                        {
+                            result.innerHTML="下舍入"+ Math.floor(numB);
+                        }
+                        break;
+                    case"把当前选中的数字四舍五入为最接近的整数":
+                        if(choice[0].checked)
+                        {
+                            result.innerHTML="四舍五入最近整数："+Math.round(numA);
+                        }
+                        else
+                        {
+                            result.innerHTML="四舍五入最近整数："+ Math.round(numB);
+                        }
+                        break;
+                    case"返回 A 和 B 中的最高值":
+                        result.innerHTML="最低值"+Math.max(numA,numB);
+                        break;
+                    case"返回 A 和 B 中的最低值":
+                        result.innerHTML="最低值"+Math.min(numA,numB);
                         break;
                 }
             }
