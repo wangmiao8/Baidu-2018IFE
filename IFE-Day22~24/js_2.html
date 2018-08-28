@@ -95,14 +95,14 @@
                                 return result.innerHTML = strB.slice(numA,numB);
                             }
                             break;
-                        case "当前选中输入框的行数" :
-                            if(choice[0].checked)
+                        case "当前选中输入框的行数" : 
+                            if(choice[0].checked) //(未解决)
                             {
-                                
+                                return result.innerHTML = strA.split(/\r*\n/).length;
                             }
                             else
                             {
-
+                                return result.innerHTML = strB.split(/\n/).length;
                             }
                             break;
                         case "把所选输入框中的内容全部转为大写" :
@@ -139,27 +139,11 @@
                         case "把所选输入框中内容的a全部替换成另外一个输入框中的内容" :
                             if(choice[0].checked)
                             {
-                                for(var i = 0; i < strA.length; i++)
-                                {
-                                    if(strA[i] == "a")
-                                    {
-                                        console.log(strA[i]);
-                                        strA[i] = strB;
-                                        console.log(strA[i]);
-                                    }
-                                }
-                                return result.innerHTML = strA;
+                                return result.innerHTML = strA.replace(/a/g,strB);
                             }
                             else
                             {
-                                for(var i = 0;i < strB.length; i++)
-                                {
-                                    if(strB[i] == "a")
-                                    {
-                                        strB[i] = strA;
-                                    }
-                                }
-                                return result.innerHTML = strB;
+                                return result.innerHTML = strB.replace(/a/g,strA);
                             }
                     }
                 }
