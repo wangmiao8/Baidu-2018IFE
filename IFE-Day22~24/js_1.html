@@ -24,12 +24,12 @@
     <p id="result"></p>
 
     <script> 
+        var buttonNum = document.getElementById("buttonNum");
         buttonNum.onclick = function(ev){
             var numA = document.getElementById("num-a").value;
             var numB = document.getElementById("num-b").value;
             var rusult = document.getElementById("result");
             var choice = document.getElementsByName("math-obj");    
-            var buttonNum = document.getElementById("buttonNum");
             var ev = ev||window.event;
             var target = ev.target||ev.srcElement;
             if(target.nodeName.toLowerCase() == "button")
