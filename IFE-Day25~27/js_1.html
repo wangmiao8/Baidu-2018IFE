@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var myDate = new Date,
+        myYear = myDate.getFullYear(),
+        myMonth = myDate.getMonth(),
+        myDay = myDate.getDate(),
+        myHour = myDate.getHours(),
+        myMin = myDate.getMinutes(),
+        mySeconds = myDate.getSeconds();
+        
+        function week()
+        {
+            myweek = myDate.getDay();
+            switch(myweek)
+            {
+                case 0: 
+                return "星期天";
+                case 1: 
+                return "星期一";
+                case 2: 
+                return "星期二";
+                case 3: 
+                return "星期三";
+                case 4: 
+                return "星期四";
+                case 5: 
+                return "星期五";
+                case 6: 
+                return "星期六";
+            }
+        }
+        function addZero(name)
+        {
+            if(name<10)
+            {
+                name = "0" + name;
+            }
+            return name;
+        }
+        function nowTime()
+        {
+            var nowTime = addZero(myYear) + "年" + addZero(myMonth) + "月" + addZero(myDay) + "日" + week() + " " + addZero(myHour) + ":" + addZero(myMin) + ":" + addZero(mySeconds);
+            return nowTime;
+        }
+        function myRefresh()
+        {
+            window.location.reload();
+        }
+        //执行
+        window.onload = function()
+        {
+            setTimeout("myRefresh()",1000);
+        }
+        document.write(nowTime());
+        // console.log(nowTime());
+    </script>
+</body>
+</html>
