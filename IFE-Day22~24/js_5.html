@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input id="queue-input" type="text">
+    <p id="queue-cont">队列内容：apple-&gt;pear</p>    
+    <button id="in-btn">入队</button>
+    <button id="out-btn">出队</button>
+    <button id="font-btn">打印队头元素内容</button>
+    <button id="empty-btn">判断队列是否为空</button>
+
+<script>
+    var queue = ["apple", "pear"];
+    var content = document.getElementById("queue-input").value;
+    var contentText = document.getElementById("queue-cont");
+    var inBtn = document.getElementById("in-btn");
+    var outBtn = document.getElementById("out-btn");
+    var fontBtn = document.getElementById("font-btn");
+    var emptyBtn = document.getElementById("empty-btn");
+
+    inBtn.onclick = function(){
+        queue.push(contentText);
+    }
+    outBtn.onclick = function(){
+        queue.shift();
+    }
+    emptyBtn.onclick() = function(){
+        
+    }
+    fontBtn.onclick = function(){
+        contentText.innerHTML = queue;
+    }
+</script>
+</body>
+</html>
