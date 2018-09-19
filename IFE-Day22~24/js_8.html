@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var scoreObject = {
+            "Tony": {
+                "Math": 95,
+                "English": 79,
+                "Music": 68
+            }, 
+            "Simon": {
+                "Math": 100,
+                "English": 95,
+                "Music": 98
+            }, 
+            "Annie": {
+                "Math": 54,
+                "English": 65,
+                "Music": 88
+            }
+        }
+        function objToArray(obj){
+            var dyadicArray = [];
+            var arr = [];
+
+            for(var i in obj){
+                arr.push(i);
+                for(var j in obj[i]){
+                    arr.push(obj[i][j]);
+                }
+                dyadicArray.push(arr);
+                arr = [];
+            }
+            console.log(dyadicArray);
+        }
+        objToArray(scoreObject);
+        
+    </script>
+</body>
+</html>
