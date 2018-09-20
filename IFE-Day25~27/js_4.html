@@ -107,8 +107,11 @@
             var selectYear = document.getElementById("year-select").value;
             var selectMonth = document.getElementById("month-select").value;
             var selectDay = document.getElementById("day-select").value;
+            var dayChoice = document.getElementById("day-select");
             if(selectMonth == 1 || selectMonth == 3 || selectMonth == 5 || selectMonth == 7 || selectMonth == 8 || selectMonth == 10 || selectMonth == 12){
-
+                var addOption =  dayChoice.appendChild("option");
+                addOption.value = 31;
+                addOption.innerHTML = 31;
             }
         }
         function selectTime(){
