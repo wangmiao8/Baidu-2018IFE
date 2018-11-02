@@ -34,7 +34,7 @@
         <option value="12">12</option>
     </select>
 
-    <select id="day-selct">
+    <select id="day-select">
         <option value="1">1</option>
         <option value="2">2</option>
         <option value="3">3</option>
@@ -47,6 +47,24 @@
         <option value="10">10</option>
         <option value="11">11</option>
         <option value="12">12</option>
+        <option value="13">13</option>
+        <option value="14">14</option>
+        <option value="15">15</option>
+        <option value="16">16</option>
+        <option value="17">17</option>
+        <option value="18">18</option>
+        <option value="19">19</option>
+        <option value="20">20</option>
+        <option value="21">21</option>
+        <option value="22">22</option>
+        <option value="23">23</option>
+        <option value="24">24</option>
+        <option value="25">25</option>
+        <option value="26">26</option>
+        <option value="27">27</option>
+        <option value="28">28</option>
+        <option value="29">29</option>
+        <option value="30">30</option>
     </select>
 
     <select id="hour-select">
@@ -99,30 +117,186 @@
 
     <p id="result-wrapper"></p>
 
-    <script>
-        function selectYear(){
-
-        }
-        function changeDay(){
+    <script>        
+        function clear(){
             var selectYear = document.getElementById("year-select").value;
+            var selectDay = document.getElementById("day-select");
+            var dayChild = selectDay.getElementsByTagName("option");
             var selectMonth = document.getElementById("month-select").value;
-            var selectDay = document.getElementById("day-select").value;
-            var dayChoice = document.getElementById("day-select");
-            if(selectMonth == 1 || selectMonth == 3 || selectMonth == 5 || selectMonth == 7 || selectMonth == 8 || selectMonth == 10 || selectMonth == 12){
-                var addOption =  dayChoice.appendChild("option");
-                addOption.value = 31;
-                addOption.innerHTML = 31;
+
+            if(dayChild.length == 30){
+                return;
+            }
+
+            if(dayChild.length == 31){
+                selectDay.removeChild(dayChild[dayChild.length - 1]);
+            }
+
+            if(dayChild.length == 29){
+                var newOption = document.createElement("option");
+                newOption.value = 30;
+                newOption.innerHTML = 30;
+                selectDay.appendChild(newOption);
+            }
+
+            if(dayChild.length == 28){
+                var newOption = document.createElement("option");
+                var newOption2 = document.createElement("option");
+
+                newOption.value = 29;
+                newOption.innerHTML = 29;
+                selectDay.appendChild(newOption);
+                newOption2.value = 30;
+                newOption2.innerHTML = 30;
+                selectDay.appendChild(newOption2);
             }
         }
-        function selectTime(){
-            var selectYear = document.getElementById("year-select").value;
-            var selectMonth = document.getElementById("month-select").value;
-            var selectDay = document.getElementById("day-select").value;
-            var selectHour = document.getElementById("hour-select").value;
-            var selectMinute = document.getElementById("minute-select").value;
-            var selectSecond = document.getElementById("second-select").value;
 
+        function year(){
+            var selectYear = document.getElementById("year-select").value;
+            var selectDay = document.getElementById("day-select");
+            var dayChild = selectDay.getElementsByTagName("option");
+            var selectMonth = document.getElementById("month-select").value;
+            
+            // 二月份
+            if(selectMonth == 2){
+                if((selectYear % 4 == 0 && selectYear % 100 != 0) || selectYear % 400 == 0){
+                    if(dayChild.length <= 29){
+                        return;
+                    }
+                    if(dayChild.length == 30){
+                        selectDay.removeChild(dayChild[dayChild.length - 1]);
+                    }
+                }else{
+                    if(dayChild.length <= 28){
+                        return;
+                    }
+                    if(dayChild.length == 30){
+                        selectDay.removeChild(dayChild[dayChild.length - 1]);
+                        selectDay.removeChild(dayChild[dayChild.length - 1]);
+                    }
+                }
+            }
         }
-    </script>
+        
+        function month(){
+            var selectMonth = document.getElementById("month-select").value;
+            var selectDay = document.getElementById("day-select");
+            var dayChild = selectDay.getElementsByTagName("option");
+
+            // 1,3,5,7,8,10,12月
+            if(selectMonth == 1 || selectMonth == 3 || selectMonth == 5 || selectMonth == 7 || selectMonth == 8 || selectMonth == 10 || selectMonth == 12){
+                if(dayChild.length >= 31){
+                    return;
+                }
+                var addOption = document.createElement("option");
+                addOption.value = 31;
+                addOption.innerHTML = 31;
+                selectDay.appendChild(addOption);
+            }else{
+                if(selectDay == 2){
+                    return;
+                }
+            }
+        }
+        
+        function main(){
+            clear();
+            year();
+            month();
+            update();
+        }
+
+        function update(){
+            var result = document.getElementById("result-wrapper");
+            var date = new Date();
+            var nowDay = date.getDate();
+            var nowMon = date.getMonth();
+            var nowYear = date.getFullYear();
+            var nowHour = date.getHours();
+            var nowMin = date.getMinutes();
+            var nowSecond = date.getSeconds();
+            var year = document.getElementById("year-select").value;
+            var month = document.getElementById("month-select").value;
+            var day = document.getElementById("day-select").value;
+            var hour = document.getElementById("hour-select").value;
+            var minute = document.getElementById("minute-select").value;
+            var second = document.getElementById("second-select").value;
+            
+            if(year >= nowYear){
+                if(month >= nowMon){
+                    if(day >= nowDay){
+                        if(hour >= nowHour){
+                            if(minute >= nowMin){
+                                if(second >= nowSecond){
+                                    result.innerHTML = "现在距离 " + TimeZh() + "还有";
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            else{
+                result.innerHTML = "现在距离 " + TimeZh() + " 已过去";
+            }
+
+            function TimeZh()
+            {
+                console.log(month)
+                var time = addZero(year) + "年" + addZero(month) + "月" + addZero(day) + "日" + getDay() + " " + addZero(hour) + ":" + addZero(minute) + ":" + addZero(second);
+                return time;
+            }
+
+            function weekZh()
+            {
+                myweek = date.getDay();
+                switch(myweek)
+                {
+                    case 0: 
+                    return "星期天";
+                    case 1: 
+                    return "星期一";
+                    case 2: 
+                    return "星期二";
+                    case 3: 
+                    return "星期三";
+                    case 4: 
+                    return "星期四";
+                    case 5: 
+                    return "星期五";
+                    case 6: 
+                    return "星期六";
+                }
+            }
+
+            function addZero(name)
+            {
+                if(name<10)
+                {
+                    name = "0" + name;
+                }
+                return name;
+            }
+        }
+
+        var select = document.getElementsByTagName("select");
+        for(var i = 0; i < select.length; i++){
+            select[i].onclick = main;
+        }
+
+        function getDay(){
+            var year = document.getElementById("year-select").value;
+            var month = document.getElementById("month-select").value + 1; // getMonth获取的时间范围为0到11，而选中的日期是被减一后的结果，所以需要加一
+            var day = document.getElementById("day-select").value;
+            var hour = document.getElementById("hour-select").value;
+            var minute = document.getElementById("minute-select").value;
+            var second = document.getElementById("second-select").value;
+            var weekDay = ["星期日","星期一","星期二","星期三","星期四","星期五","星期六"];
+            var date = new Date(year,month,day,hour,minute,second);
+            return weekDay[date.getDay()];
+        }
+
+
+        </script>
 </body>
 </html>
