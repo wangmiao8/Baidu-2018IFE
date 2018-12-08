@@ -7,7 +7,7 @@
 
 示例图
 
-<img scr = "https://s1.ax1x.com/2018/05/19/CcTaJs.jpg" width =  "200px" height = "150px"/>
+![images](https://s1.ax1x.com/2018/05/19/CcTaJs.jpg)
 
 部分代码参考：
 
