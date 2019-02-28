@@ -5,8 +5,195 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .wrapper{
+            height: 300px;
+            width: 200px;
+            margin-left: 20px;
+            margin-top: 50px;
+        }
+        input{
+            width: 100%;
+            box-sizing: border-box;
+            border: 1px solid #CCC;
+        }
+
+        ul li{
+            list-style: none;
+            text-indent: 10px;
+            font-size: 12px;
+        }
+        ul li:hover{
+            background: #F8C3CD;
+        }
+        .email-sug{
+            box-sizing: border-box;
+            display: none;
+            border: 1px solid #CCC;
+            width: 100%;
+            overflow: hidden;
+            border-top: 0;
+        }
+        /* #A5DEE4 */
+        .active{
+            background: #F8C3CD;
+        }
+    </style>
 </head>
 <body>
-    
+    <div class="wrapper">
+        <input id="email-input" type="text">
+        <ul id="email-sug-wrapper" class="email-sug"></ul>
+    </div>
+    <script>
+        var input = document.getElementById("email-input");
+        var postfixList = ['163.com', 'gmail.com', '126.com', 'qq.com', '263.net']; // 调整联想块的邮箱后缀
+        
+        input.addEventListener("input",function(){
+            getValue();
+            sugList();
+            match();
+            onOff()
+        });
+        
+        // 用户输入值
+        function getValue(){
+            var inputValue = document.getElementById("email-input").value;            
+            var trimStr = diyTrim(inputValue);
+
+            return trimStr;
+        }
+        
+        // 用户输入数据处理
+        function diyTrim(str){
+            var result = "",
+                start = 0;
+                end = str.length - 1,
+                charindex = 0,
+                charAfter = "";
+               
+
+            for(var i = 0; i < str.length; i++){
+                if(start <= end && (str.charAt(start) == " " || str.charAt(start) == "　")){
+                    start++;
+                }
+                if(start <= end && (str.charAt(end) == " " || str.charAt(end) == "　")){
+                    end--;
+                }
+            }                  
+            result = str.substring(start, end + 1);
+            
+            charindex = end + 1;
+
+            for(var i = 0; i < result.length; i++){
+                if(result[i] == "@"){
+                    charindex = i;
+                }
+            }
+            result = result.substring(0, charindex);
+                      
+            return result;
+        }
+
+        // 联想匹配到的内容优先显示
+        function match() {
+            var strInput = document.getElementById("email-input").value;   
+            var start;
+            var end = strInput.length - 1;
+            var strAfter = "";
+            var strindex;
+
+            for(var i = 0; i < strInput.length; i++){
+                if(strInput[i] == "@"){
+                    start = i + 1;
+                }
+            }
+
+            if(start == undefined){
+                return;
+            }
+
+            strAfter = strInput.substring(start, end + 1);
+            console.log(strAfter);
+            if(strAfter != ""){
+                var elemLi = document.getElementsByTagName("li");
+                var elemUl = document.getElementById("email-sug-wrapper");
+                var insertIndex = 0;
+                for(var i = 0; i < postfixList.length; i++){
+                    if(postfixList[i].indexOf(strAfter) > -1){
+                        strindex = i;
+                        elemLi[strindex].style.backgroundColor = "#A5DEE4";
+                        elemUl.insertBefore(elemLi[strindex], elemLi[insertIndex]);
+                        insertIndex++;
+                    }
+                }
+            }
+            
+        }
+        
+        // 联想块内容
+        function sugList(){
+            var str = getValue();
+            var resultStr = [];
+            var ul = document.getElementById("email-sug-wrapper");
+            var nodeLength = ul.childNodes.length;
+            if(ul.hasChildNodes()){
+                for(var i = 0; i < nodeLength; i++){
+                    ul.removeChild(ul.childNodes[0]);
+                }
+            }
+            for(var i = 0; i < postfixList.length; i++){
+                var li = document.createElement("li");
+                li.innerHTML = str + "@" + postfixList[i];
+                ul.appendChild(li);
+            } 
+        }
+        
+        // 联想块开关条件
+        function onOff(){
+            var inputValue = document.getElementById("email-input").value;
+            if(inputValue == ""){
+                hidWrapper();                
+            }else{
+                showWrapper();
+            }
+        }
+
+        // 显示联想块
+        function showWrapper(){
+            var ul = document.getElementById("email-sug-wrapper");
+            ul.style.display = "block";
+        }
+        
+        // 隐藏联想块
+        function hidWrapper(){
+            var ul = document.getElementById("email-sug-wrapper");
+            ul.style.display = "none";
+        }
+
+        // 联想块选中样式
+        function styleSug(e){
+            var event = e || window.event;
+            var target = event.target || event.srcElement;
+
+            if(target.nodeName.toLowerCase() == "li"){
+                input.value = target.innerHTML;
+            }
+            ul.style.display = "none";
+        }
+
+        var ul = document.getElementById("email-sug-wrapper");
+        ul.addEventListener("click",function(e){
+            styleSug(e);
+        });
+
+        document.onclick = function(){
+            ul.style.display = "none";
+        }
+    </script>
 </body>
 </html>

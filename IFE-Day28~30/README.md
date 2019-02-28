@@ -32,11 +32,11 @@ var postfixList = ['163.com', 'gmail.com', '126.com', 'qq.com', '263.net'];
 ### 设计
 从今天开始，我们希望你在写代码之前开始画流程图
 
-请阅读：[流程图怎么画](https://www.processon.com/)
+请阅读：流程图怎么画
 
 推荐工具：
 
-- Processon
+- [Processon](https://www.processon.com/)
 
 对于有经验的同学，你们可以跳过下面的部分，零基础的同学请跟着我一起进行设计。
 
@@ -211,7 +211,7 @@ var postfixList = ['163.com', 'gmail.com', '126.com', 'qq.com', '263.net'];
         }
     }
 ## 需求
-尝试在输入框中输入<b>，看看提示框发生了什么
+尝试在输入框中输入，看看提示框发生了什么
 
 ### 阅读
 Web安全之XSS攻防
