@@ -5,19 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <script src="ife31data.js"></script>
+    <style>
+        table {
+            border: 1px solid #000;
+            padding: 5px;
+            text-align: center;
+        }
+        td, th{
+            width: 50px;
+            height: 30px;
+            border: 1px solid #000;
+        }
+    </style>
 </head>
 <body>
     <div class="wrapper">
         <div class="select-list">
             <select id="product-select">
-                <option value="phone">手机</option>
-                <option value="laptop">笔记本</option>
-                <option value="intelligent-speaker">智能音箱</option>
+                <option value="手机">手机</option>
+                <option value="笔记本">笔记本</option>
+                <option value="智能音箱">智能音箱</option>
             </select>
             <select id="region-select">
-                <option value="EC">华东</option>
-                <option value="NC">华北</option>
-                <option value="SC">华南</option>
+                <option value="华东">华东</option>
+                <option value="华北">华北</option>
+                <option value="华南">华南</option>
             </select>
             <select id="month-select">
                 <option value="1">1</option>
@@ -38,7 +51,55 @@
         <div class="table-wrapper"></div>
 
         <script>
+            var selectList = document.getElementsByClassName("select-list")[0]
+
+            selectList.addEventListener("change", function(e) {
+                renderTable(getSelectValue())
+            })
             
+            function getSelectValue() {
+                var productValue = document.getElementById("product-select").value
+                var regionValue = document.getElementById("region-select").value
+                var monthValue = document.getElementById("month-select").value
+                var data = null
+                var len = sourceData.length
+
+                for(var i = 0; i < len; i++) {
+                    if(sourceData[i].product == productValue && sourceData[i].region == regionValue) {
+                        // console.log(productValue,regionValue,sourceData[i].sale[monthValue-1])
+                        return [productValue,regionValue,sourceData[i].sale[monthValue-1]]
+                    }
+                }
+            }
+
+            function renderTable(data) {
+                var tableWrapper = document.getElementsByClassName("table-wrapper")[0]
+                var table = document.createElement("table")
+                var len = data.length
+                var tableHeader = ["产品","区域","月份"]
+                var tRow1 = document.createElement("tr")
+                var tRow2 = document.createElement("tr")
+
+                table.appendChild(tRow1)
+                table.appendChild(tRow2)
+
+                console.log()
+                for(var i = 0; i < len; i++) {
+                    var tHead = document.createElement("th")
+
+                    tHead.innerHTML = tableHeader[i]
+                    tRow1.appendChild(tHead)
+                }
+
+                for(var j = 0; j < len; j++) {
+                    var tData = document.createElement("td")
+
+                    tData.innerHTML = data[j]
+                    tRow2.appendChild(tData)
+                }
+                
+                tableWrapper.appendChild(table)
+            }
         </script>
     </div>
 </body>
